@@ -1,0 +1,37 @@
+﻿@using TaxCalculations.Application.Features.TaxCalculation.TaxCalculator.Commands;
+@model TaxCalculateCommand
+
+<h2>Tax Calculator</h2>
+@if(ViewBag.error is not null)
+{
+    <h4>@ViewBag.error</h4>
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="PostalCode" class="control-label"></label>
+        <input asp-for="PostalCode" class="form-control" />
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnnualIncome" class="control-label"></label>
+        <input asp-for="AnnualIncome" class="form-control" />
+        <span asp-validation-for="AnnualIncome" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Calculator" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@if(@ViewBag.taxResults is not null)
+{
+    <div>
+        <h4>Tax Results: @ViewBag.taxResults</h4>
+    </div>
+}

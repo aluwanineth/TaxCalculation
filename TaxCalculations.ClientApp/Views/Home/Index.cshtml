@@ -1,0 +1,59 @@
+﻿@using TaxCalculations.Application.Features.TaxCalculate.Queries.GetAllTaxCalculation;
+@model IEnumerable<TaxCalculateQueryResponse>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tax Calculator</h1>
+</div>
+
+<p>
+    <a asp-action="Create">New Tax Calculator</a>
+</p>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnualIncome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxCalculationAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnnualIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxCalculationAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-sm btn-danger" onclick="DeleteTaxCalculation('@item.Id')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/js/TaxCalculator/TaxCalculation.js"></script>
+
+<link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+<script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
