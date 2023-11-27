@@ -19,7 +19,7 @@ namespace TaxCalculations.API.Extensions
                     {
                         Name = "Aluwani Nethavhakone",
                         Email = "aluwani.nethavhakone@icloud.com",
-                        Url = new Uri("https://github.com/aluwanineth/E_Commerce"),
+                        Url = new Uri("https://github.com/aluwanineth/TaxCalculation"),
                     }
                 });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
